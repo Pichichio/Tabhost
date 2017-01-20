@@ -1,5 +1,6 @@
 package com.example.doantruong.tabhost;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     ViewPager viewPager;
     TabHost tabHost;
+    List<Fragment> listFragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,10 +64,40 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         int selectedItem = tabHost.getCurrentTab();
         viewPager.setCurrentItem(selectedItem);
 
+        // Dong Phuong Bat Bai Editted here
+        if (selectedItem == 5) {
+            Fragment6 fragment6 = (Fragment6) listFragments.get(5);
+            fragment6.orderButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    initBillingDialog(listFragments);
+                }
+            });
+        }
+
         HorizontalScrollView horizontalScrollView = (HorizontalScrollView) findViewById(R.id.h_scroll_view);
         View tabView = tabHost.getCurrentTabView();
         int scrollPos = tabView.getLeft() - (horizontalScrollView.getWidth() - tabView.getWidth()) / 2;
         horizontalScrollView.smoothScrollTo(scrollPos, 0);
+    }
+
+    private void initBillingDialog(List<Fragment> fragmentList) {
+        Dialog dialog = new Dialog(MainActivity.this, android.R.style.Theme_Holo_Light_NoActionBar_Fullscreen);
+        dialog.setContentView(R.layout.billing_layout);
+        dialog.show();
+
+        Fragment1 fragment1 = (Fragment1) fragmentList.get(0);
+        if (fragment1.pizzaSub.isChecked()) {
+            System.out.println("yes it is");
+        }
+
+        if (fragment1.subwayClub.isChecked()) {
+            System.out.println("yes it is");
+        }
+
+        if (fragment1.subwayMelt.isChecked()) {
+            System.out.println("yes it is");
+        }
     }
 
     public class FakeContent implements TabHost.TabContentFactory {
@@ -87,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
     private void initViewPager() {
         viewPager = (ViewPager) findViewById(R.id.view_pager);
 
-        List<Fragment> listFragments = new ArrayList<Fragment>();
+        listFragments = new ArrayList<Fragment>();
         listFragments.add(new Fragment1());
         listFragments.add(new Fragment2());
         listFragments.add(new Fragment3());
@@ -100,4 +132,5 @@ public class MainActivity extends AppCompatActivity implements ViewPager.OnPageC
         viewPager.setAdapter(myFragmentPagerAdapter);
         viewPager.setOnPageChangeListener(this);
     }
+
 }

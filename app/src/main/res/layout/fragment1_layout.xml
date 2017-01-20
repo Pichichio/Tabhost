@@ -1,56 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <!-- Here you put the rest of your current view-->
 
-    <ImageView
-        android:id="@+id/imageMeal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/meal" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="First things first, sandwich or salad? It depends what you're in the mood for. Our sandwiches are available on freshly baked bread and are made to order. You can even order your favorite sandwich as a salad."
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:layout_marginTop="10dp"
-        android:textStyle="italic" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <CheckBox
+        <ImageView
+            android:id="@+id/imageMeal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pizza Sub"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:id="@+id/rdbPizzaSub"/>
-        <CheckBox
+            android:src="@drawable/meal" />
+
+        <TextView
+            android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Subway Club"
-            android:layout_marginLeft="40dp"
+            android:text="First things first, sandwich or salad? It depends what you're in the mood for. Our sandwiches are available on freshly baked bread and are made to order. You can even order your favorite sandwich as a salad."
+            android:textColor="#000000"
+            android:textSize="16sp"
             android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:id="@+id/rdbSubwayClub"/>
-        <CheckBox
-            android:layout_width="wrap_content"
+            android:textStyle="italic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Subway Melt"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:id="@+id/rdbSubwayMelt"/>
+            android:orientation="vertical">
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pizza Sub"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:id="@+id/rdbPizzaSub"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subway Club"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:id="@+id/rdbSubwayClub"/>
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Subway Melt"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:id="@+id/rdbSubwayMelt"/>
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+</ScrollView>
